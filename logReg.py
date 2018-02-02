@@ -51,8 +51,11 @@ def LogisticReg():
 	#---Train the model---#
 	from sklearn.model_selection import train_test_split
 
-	x_train, x_test, y_train, y_test = train_test_split(titTrain.drop('Survived', axis=1),
-		titTrain['Survived'], test_size=0.3, random_state=101)
+	X = titTrain.drop('Survived', axis=1)
+	y = titTrain['Survived']
+
+	x_train, x_test, y_train, y_test = train_test_split(X,y, test_size=0.3, 
+		random_state=101)
 
 
 	from sklearn.linear_model import LogisticRegression
